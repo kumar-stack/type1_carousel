@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="blockk">
+            <img class="frame" src="./mob-frame.png" alt="">
+            <div class="cards_carousel"> 
+                <div class="card_box">
+                    <img src="slide-1.png" alt="frst_img">
+                    
+                </div> 
+                <div class="card_box">
+                    <img src="slide-2.png" alt="frst_img">
+                    
+                </div>              
+                <div class="card_box">
+                    <img src="slide-3.png" alt="frst_img">
+                    
+                </div>
+                <div class="card_box">
+                    <img src="slide-4.png" alt="frst_img">                 
+                </div>
+                
+            </div>
+        </div>
+        <div class="shadow">
+            <div class="box1 box_shadow"></div>
+            <div class="box2 box_shadow"></div>
+            <div class="box3 box_shadow"></div>
+            <div class="box4 box_shadow"></div>
+        </div>
+    </div>
+    <script>
+        const slider =document.querySelector('.cards_carousel');
+        const card =document.querySelectorAll('.card_box') ;
+        const size = card[0].clientWidth;
+
+        console.log(size)
+
+       
+        
+        console.log(card)
+
+        
+           
+        //     for(i=1;i<=card.length-1;i++){
+        //         const wait = function(seconds){
+        //         setTimeout(seconds*1000);
+        // }
+        //         counter++;
+        //         console.log(counter)
+        //         slider.style.transform = 'translateX('+(-size*counter)+'px)';
+        //         slider.style.transition = '4s ease-in-out'
+        //         wait(5)
+        // }
+      
+        const box1 =document.querySelector('.box1')
+        const box2 =document.querySelector('.box2')
+        const box3 =document.querySelector('.box3')
+        const box4 =document.querySelector('.box4')
+        let counter=0;  
+        const imgSlider=()=>{   
+             
+           if(counter<=card.length-1){               
+              if(counter==0){          
+                slider.style.transform = 'translateX('+(-size*counter)+'px)';
+                slider.style.transition = '1s'
+                box1.style.boxShadow = '1px 1px 10px 0.2px purple';
+                box4.style.boxShadow = 'none'
+                counter++  
+               } else if(counter==1){
+                slider.style.transform = 'translateX('+(-size*counter)+'px)';
+                slider.style.transition = '1s'
+                box1.style.boxShadow = 'none'
+                box2.style.boxShadow = '1px 1px 10px 0.2px purple';
+                counter++
+                console.log(counter)
+               } else if(counter==2){
+                slider.style.transform = 'translateX('+(-size*counter)+'px)';
+                slider.style.transition = '1s'
+                box2.style.boxShadow = 'none'
+                box3.style.boxShadow = '1px 1px 10px 0.2px purple';
+                counter++
+                console.log(counter)
+               }else if(counter==3){
+                slider.style.transform = 'translateX('+(-size*counter)+'px)';
+                slider.style.transition = '1s'
+                box3.style.boxShadow = 'none'
+                box4.style.boxShadow = '1px 1px 10px 0.2px purple';
+                counter++
+                console.log(counter)
+                }
+                else if(counter==4){
+                slider.style.transform = 'translateX('+(-size*counter)+'px)';
+                box3.style.boxShadow = 'none'
+                box4.style.boxShadow = '1px 1px 10px 0.2px purple';
+                counter=0
+                
+                }             
+           } else {
+               counter=0
+           }          
+       }
+
+       setInterval(() => {
+        imgSlider()
+       }, 4000);
+
+        box1.addEventListener('click',function(){
+        let currentCounter = 0;    
+        slider.style.transform = 'translateX('+(-size*currentCounter)+'px)';
+        })   
+
+        box2.addEventListener('click',function(){
+        let currentCounter = 1;    
+        slider.style.transform = 'translateX('+(-size*currentCounter)+'px)';
+        }) 
+
+        box3.addEventListener('click',function(){
+        let currentCounter = 2;    
+        slider.style.transform = 'translateX('+(-size*currentCounter)+'px)';
+        }) 
+
+        box4.addEventListener('click',function(){
+        let currentCounter = 3;    
+        slider.style.transform = 'translateX('+(-size*currentCounter)+'px)';
+        })
+
+    </script>
+
+    
+    <script src="./js/all.min.js" defer></script>
+  
+    
+</body>
+</html>
